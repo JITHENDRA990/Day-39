@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let c of cards">
+            <div class="card">
+                <div class="card-imd">
+                    <img [src]="c.src" [alt]="c.alt">
+                    <h1>{{c.title}}</h1>
+                    <div class="cards-description">
+                        <h3><span></span></h3>
+                        <button class="btn btn-outline-success" id="users">{{c.btn}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
