@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CardsService } from '../services/cards.service';
+import { Cards } from '../models/cards';
 
 @Component({
   selector: 'app-cards',
@@ -6,21 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent {
-  cards=[
-   {
-    src:"https://tse4.mm.bing.net/th?id=OIP.uuenG_U1A_zCkzFaAV2xtAHaEC&pid=Api&P=0&h=180",
-    alt:"image",
-    title:"FOOD",
-    price:20,
-    btn:"Order now",
-
-  },
-  {
-    src:"https://tse4.mm.bing.net/th?id=OIP.uuenG_U1A_zCkzFaAV2xtAHaEC&pid=Api&P=0&h=180",
-    alt:"image",
-    title:"FOOD",
-    price:20,
-    btn:"Order now"
+  cards:Cards[]=[];
+  constructor(private service:CardsService){
   }
-  ]
+  ngOnInit():void{
+    this.service.insertion().subscribe(data => this.cards =data)
+  } 
 }
